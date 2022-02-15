@@ -1,0 +1,14 @@
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+a {
+  text-decoration: none;
+}
+
+#details {
+  padding: 24px;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 8px;
+}
