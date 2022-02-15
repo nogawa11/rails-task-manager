@@ -1,19 +1,23 @@
-<div class="container m-3">
-  <h1>My tasks</h1>
-  <ul class='list-unstyled'>
-    <% @tasks.each do |task| %>
-      <li>
-        <% if !task.completed %>
-          <i class="far fa-square"></i>
-        <% elsif task.completed%>
-          <i class="far fa-check-square"></i>
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      <h1>My tasks</h1>
+      <ul class='list-unstyled mt-3'>
+        <% @tasks.each do |task| %>
+          <li>
+            <% if !task.completed %>
+              <i class="far fa-square"></i>
+            <% elsif task.completed%>
+              <i class="far fa-check-square"></i>
+            <% end %>
+            <%= link_to task.title, task_path(task) %>
+            <%= link_to (" • <i class='fas fa-trash-alt'></i>").html_safe, task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?" } %>
+          </li>
         <% end %>
-        <%= link_to task.title, task_path(task) %>
-        <%= link_to (" • <i class='fas fa-trash-alt'></i>").html_safe, task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?" } %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to(tasks_new_path) do %>
-    <i class="fas fa-plus"></i> Add a new task
-  <% end %>
+      </ul>
+      <%= link_to(tasks_new_path) do %>
+        <i class="fas fa-plus"></i> Add a new task
+      <% end %>
+    </div>
+  </div>
 </div>

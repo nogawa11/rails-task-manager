@@ -1,20 +1,24 @@
-<div class="container m-3">
-  <div class="d-flex align-items-center justify-content-between">
-    <h1><%= @task.title %></h1>
-    <%= link_to(edit_task_path(@task)) do %>
-    <p><i class="fas fa-pencil-alt"></i> Edit this task</p>
-    <% end %>
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      <div class="d-flex align-items-center justify-content-between">
+        <h1><%= @task.title %></h1>
+        <%= link_to(edit_task_path(@task), class: 'btn btn-light') do %>
+        <p><i class="fas fa-pencil-alt"></i> Edit this task</p>
+        <% end %>
+      </div>
+      <p id="details"><%= @task.details %></p>
+      <p>
+        <% if !@task.completed %>
+          <i class="far fa-square"></i>
+        <% elsif @task.completed%>
+          <i class="far fa-check-square"></i>
+        <% end %>
+        <%= @message %></p>
+      </p>
+      <%= link_to(tasks_path) do %>
+        <i class="fas fa-undo"></i> Back to list
+      <% end %></p>
+    </div>
   </div>
-  <p id="details"><%= @task.details %></p>
-  <p>
-    <% if !@task.completed %>
-      <i class="far fa-square"></i>
-    <% elsif @task.completed%>
-      <i class="far fa-check-square"></i>
-    <% end %>
-    <%= @message %></p>
-  </p>
-  <%= link_to(tasks_path) do %>
-    <i class="fas fa-undo"></i> Back to list
-  <% end %></p>
 </div>
